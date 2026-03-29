@@ -1,0 +1,108 @@
+{
+  "name": "echo-q-bot",
+  "version": "1.0.0",
+  "description": "Echo Q Bot \u2014 AI-powered QA automation desktop app",
+  "author": {
+    "name": "Hunmble Adnan",
+    "github": "https://github.com/hadnan1994"
+  },
+  "main": "build/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "electron .",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "copy-electron": "node scripts/copy-electron.js",
+    "build:win": "npm run react-build && npm run copy-electron && electron-builder --win",
+    "build:mac": "npm run react-build && npm run copy-electron && electron-builder --mac",
+    "build:dir": "npm run react-build && npm run copy-electron && electron-builder --win --dir"
+  },
+  "build": {
+    "appId": "com.echoqbot.app",
+    "productName": "Echo Q Bot",
+    "copyright": "Copyright 2025 Hunmble Adnan",
+    "asar": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/icon.png",
+        "to": "icon.png"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "requestedExecutionLevel": "requireAdministrator",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Echo Q Bot",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "icon": "assets/icon.png"
+    },
+    "dmg": {
+      "title": "Echo Q Bot Installer",
+      "sign": false
+    }
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
+    "axios": "^1.7.7",
+    "form-data": "^4.0.1",
+    "keytar": "^7.9.0",
+    "openai": "^4.67.0",
+    "playwright": "^1.48.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "electron": "^32.2.1",
+    "electron-builder": "^25.1.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "wait-on": "^8.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version"
+    ]
+  },
+  "copyright": "Copyright 2025 Hunmble Adnan"
+}

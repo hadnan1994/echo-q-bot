@@ -1,0 +1,6 @@
+{
+  "version": "1.0.0",
+  "releaseDate": "2025-03-28",
+  "downloadUrl": "https://echoqbot.com/download",
+  "releaseNotes": "Initial release — Playwright spec file support, Gherkin/manual steps, CSV data-driven testing, multi-LLM support (OpenAI, Anthropic, Gemini, Ollama, LocalAI), Jira/Xray integration, AI agent chat."
+}
